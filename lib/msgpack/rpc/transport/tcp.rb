@@ -237,6 +237,11 @@ class TCPServerTransport
       @server.on_notify(method, param)
     end
 
+    # Let server know a connection is closed
+    def on_close
+			@server.on_close
+    end
+
     # MessageReceiver interface
     def on_response(msgid, error, result)
       raise Error.new("response message on server session")
